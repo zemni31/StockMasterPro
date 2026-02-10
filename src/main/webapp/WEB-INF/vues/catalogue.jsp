@@ -120,7 +120,7 @@
 <body>
 <div class="container">
     <header>
-        <h1>📦 StockMaster Pro</h1>
+        <h1>📦Bienvenue dans StockMaster Pro</h1>
         <p>Système de Gestion de Stock - Catalogue Produits</p>
     </header>
 
