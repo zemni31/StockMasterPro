@@ -115,6 +115,30 @@
             color: #666;
             font-size: 1.2em;
         }
+        .user-info {
+            background: #e8f5e9;
+            border-left: 4px solid #4caf50;
+            padding: 15px;
+            margin-bottom: 25px;
+            border-radius: 5px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .btn-logout {
+            background: #f44336;
+            color: white;
+            padding: 8px 15px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-size: 0.9em;
+            transition: background 0.3s;
+        }
+
+        .btn-logout:hover {
+            background: #d32f2f;
+        }
     </style>
 </head>
 <body>
@@ -123,6 +147,17 @@
         <h1>📦Bienvenue dans StockMaster Pro</h1>
         <p>Système de Gestion de Stock - Catalogue Produits</p>
     </header>
+    <div class="content">
+        <!-- NOUVEAU : Affichage utilisateur connecté -->
+        <c:if test="${not empty sessionScope.user}">
+        <div class="user-info">
+            👤 Utilisateur connecté : <strong>${sessionScope.user}</strong>
+            <a href="deconnexion" class="btn-logout">Se déconnecter</a>
+        </div>
+        </c:if>
+
+        <!-- Reste du contenu existant -->
+        <div class="info-box">
 
     <div class="content">
 

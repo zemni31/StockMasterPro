@@ -27,10 +27,10 @@ public class CatalogueServlet extends HttpServlet {
             throws ServletException, IOException {
 
         // ✅ Récupération via Service (au lieu de créer la liste ici)
-        List<Produit> listeProduits = produitService.recupererTousLesProduits();
+        List<Produit> MalisteProduits = produitService.recupererTousLesProduits();
 
         // Transmission à la vue
-        request.setAttribute("listeProduits", listeProduits);
+        request.setAttribute("listeProduits", MalisteProduits);
 
         // Forward vers JSP
         request.getRequestDispatcher("/WEB-INF/vues/catalogue.jsp")
