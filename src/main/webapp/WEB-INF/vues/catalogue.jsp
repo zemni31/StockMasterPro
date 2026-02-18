@@ -139,6 +139,18 @@
         .btn-logout:hover {
             background: #d32f2f;
         }
+        .visit-info {
+            background: #fff3cd;
+            border-left: 4px solid #ffc107;
+            padding: 15px;
+            margin-bottom: 25px;
+            border-radius: 5px;
+        }
+
+        .visit-info.first-visit {
+            background: #d1ecf1;
+            border-left-color: #17a2b8;
+        }
     </style>
 </head>
 <body>
@@ -153,6 +165,17 @@
         <div class="user-info">
             👤 Utilisateur connecté : <strong>${sessionScope.user}</strong>
             <a href="deconnexion" class="btn-logout">Se déconnecter</a>
+        </div>
+        </c:if>
+        <c:if test="${not empty derniereVisite}">
+        <div class="visit-info">
+            🕒 Dernière visite : <strong>${derniereVisite}</strong>
+        </div>
+        </c:if>
+
+        <c:if test="${empty derniereVisite}">
+        <div class="visit-info first-visit">
+            ✨ Bienvenue ! C'est votre première visite.
         </div>
         </c:if>
 
