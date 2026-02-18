@@ -34,7 +34,7 @@ public class CatalogueServlet extends HttpServlet {
         // === PARTIE 4 : GESTION DES COOKIES ===
 
         // 1. LECTURE : Récupérer et DÉCODER le cookie lastVisit
-        String derniereVisite = null;
+        String derniereVisite = null;//derniereVisite = Ce qui était dans le cookie (t-1) → On affiche
         Cookie[] cookies = request.getCookies();
 
         if (cookies != null) {
@@ -60,13 +60,14 @@ public class CatalogueServlet extends HttpServlet {
                 StandardCharsets.UTF_8
         );
 
-        Cookie cookieLastVisit = new Cookie("lastVisit", dateEncodee);
+        Cookie cookieLastVisit = new Cookie("lastVisit", dateEncodee);//cookieLastVisit = Ce qu'on met dans le cookie (t) → On sauvegarde pour plus tard
         cookieLastVisit.setMaxAge(24 * 60 * 60); // 24 heures
         cookieLastVisit.setPath("/");
         response.addCookie(cookieLastVisit);
 
         // 3. TRANSMISSION de la date décodée (lisible) à la JSP
         request.setAttribute("derniereVisite", derniereVisite);
+
 
         // === PARTIE 5 : RÉCUPÉRATION DEPUIS LA BASE DE DONNÉES ===
         // ✅ Appel via l'INTERFACE (découplage total)
